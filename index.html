@@ -1,32 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>당신만을 위한 로또 번호 생성기</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Lotto Number Generator</h1>
-            <div class="theme-switcher">
-                <i class="fas fa-sun"></i>
-                <label class="switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider round"></span>
-                </label>
-                <i class="fas fa-moon"></i>
-            </div>
-        </header>
-        <main>
-            <div class="numbers-container">
-                <!-- Numbers will be generated here -->
-            </div>
-            <button id="generate-btn">Generate Numbers</button>
-        </main>
+    <div class="theme-switch-container">
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle">
+            <div class="slider round"></div>
+        </label>
     </div>
+
+    <div class="app-container">
+        <header>
+            <h1>당신만을 위한 로또 번호 생성기</h1>
+            <p class="subtitle">개인적인 질문에 답하고 행운의 번호를 받아보세요.</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Step 1: Start -->
+            <div class="step active" id="step-1">
+                <h2>준비되셨나요?</h2>
+                <p>몇 가지 질문에 답하고 당신만의 특별한 로또 번호 5게임을 받아보세요.</p>
+                <button class="btn-primary" id="start-btn">나만의 번호 받기</button>
+            </div>
+
+            <!-- Step 2: Birthday -->
+            <div class="step" id="step-2">
+                <h2>생년월일을 알려주세요.</h2>
+                <p>태어난 날의 기운을 받아 번호를 조합합니다.</p>
+                <input type="date" id="birth-date" class="input-field">
+                <button class="btn-primary" id="next-btn-1">다음</button>
+            </div>
+
+            <!-- Step 3: Favorite Number -->
+            <div class="step" id="step-3">
+                <h2>가장 좋아하는 숫자는 무엇인가요?</h2>
+                <p>마음속에 품고 있는 행운의 숫자를 알려주세요.</p>
+                <input type="number" id="fav-number" class="input-field" min="1" max="45" placeholder="1부터 45 사이의 숫자">
+                <button class="btn-primary" id="next-btn-2">다음</button>
+            </div>
+
+            <!-- Step 4: Memorable Place -->
+            <div class="step" id="step-4">
+                <h2>가장 기억에 남는 여행지는 어디인가요?</h2>
+                <p>그곳의 좋은 추억이 행운을 가져다줄 거예요.</p>
+                <input type="text" id="memorable-place" class="input-field" placeholder="예: 제주도, 파리, 부산">
+                <button class="btn-primary" id="generate-btn">번호 생성하기</button>
+            </div>
+            
+            <!-- Step 5: Results -->
+            <div class="step" id="step-5">
+                <h2>당신을 위한 행운의 번호!</h2>
+                <div id="results-container"></div>
+                <button class="btn-primary" id="reset-btn">다시하기</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>행운을 빕니다!</p>
+        </footer>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>

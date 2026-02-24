@@ -1,35 +1,46 @@
-# Lotto Number Generator Blueprint
 
-## Overview
+# Blueprint: 당신만을 위한 로또 번호 생성기
 
-This document outlines the plan for creating a visually appealing and interactive lottery number generator. The application will be built using modern web technologies (HTML, CSS, and JavaScript) and will focus on providing a unique and engaging user experience. It includes a theme switcher for light and dark modes.
+## 개요
 
-## Design and Features
+사용자의 개인적인 정보를 기반으로 고유한 로또 번호 조합 5개를 생성해주는 웹 애플리케이션입니다. 단순한 랜덤 생성을 넘어, 사용자에게 맞춤화된 경험을 제공하여 재미와 특별함을 더합니다.
 
-### Aesthetics and Visual Design
+## 스타일, 디자인 및 기능
 
-*   **Modern UI:** The application will feature a clean, modern interface with a visually balanced layout and ample spacing.
-*   **Color Palette:** A vibrant and energetic color palette will be used to create a dynamic look and feel. Separate color schemes for dark and light modes.
-*   **Typography:** Expressive and clear typography will be used to enhance readability and visual hierarchy.
-*   **Animations and Effects:**
-    *   The generated lottery numbers will appear with an engaging "pop-in" animation.
-    *   The main container will have a multi-layered drop shadow to create a sense of depth and a "lifted" appearance.
-    *   Interactive elements, such as the "Generate" button, will have a "glow" effect on hover and click.
-*   **Background Texture:** A subtle noise texture will be applied to the main background to add a premium, tactile feel.
-*   **Iconography:** Font Awesome icons are used for the theme switcher.
-*   **Theme Switcher:** A toggle switch allows users to switch between dark and light modes.
+*   **모던하고 깔끔한 디자인:** 사용자가 질문에 집중하고 편안하게 사용할 수 있도록 직관적인 UI를 제공합니다.
+*   **반응형 레이아웃:** 모바일과 데스크톱 등 다양한 기기에서 최적화된 화면을 보여줍니다.
+*   **다크/라이트 모드:** 사용자의 시각적 편안함을 위해 테마 전환 기능을 제공합니다.
+*   **점진적인 질문 단계:** 한 번에 하나의 질문을 보여주어 사용자의 피로감을 줄이고, 다음 단계에 대한 기대감을 높입니다.
+*   **애니메이션 효과:** 번호가 생성되고 표시될 때 부드럽고 시각적으로 즐거운 애니메이션을 적용합니다.
 
-### Core Functionality
+---
 
-*   **Number Generation:** The application will generate 6 unique random numbers between 1 and 45.
-*   **Interactive Button:** A clearly visible "Generate Numbers" button will trigger the number generation process.
-*   **Responsive Design:** The application will be fully responsive and will adapt to different screen sizes, ensuring a seamless experience on both mobile and desktop devices.
-*   **Accessibility:** The application will be designed with accessibility in mind, ensuring it is usable by people with a wide range of abilities.
-*   **Persistence:** The selected theme (dark/light) is saved in local storage and applied on subsequent visits.
+## 현재 요청 계획: 맞춤 번호 생성 기능 구현
 
-## Plan for Current Request
+1.  **HTML 구조 변경 (`index.html`):**
+    *   타이틀을 "당신만을 위한 로또 번호 생성기"로 변경합니다.
+    *   기존 번호 표시 영역을 제거하고, 여러 단계의 질문을 표시할 수 있는 컨테이너를 추가합니다.
+    *   질문 단계는 다음과 같이 구성됩니다:
+        1.  시작 화면 및 "나만의 번호 받기" 버튼
+        2.  생년월일 입력
+        3.  가장 좋아하는 숫자 입력
+        4.  질문: "가장 기억에 남는 여행지는 어디인가요?"
+        5.  모든 정보를 종합하여 5개의 로또 번호 조합을 생성하고 화면에 표시
+        6.  "다시하기" 버튼 추가
 
-1.  **Update `index.html`:** Add a theme switcher with a toggle and icons.
-2.  **Update `style.css`:** Implement a more refined design with dark and light mode styles, animations, and responsive layouts.
-3.  **Update `main.js`:** Implement the theme switching logic and persist the user's preference in local storage. Improve the number generation animation.
-4.  **Review and Refine:** Iteratively review and refine the application to ensure it meets the user's requirements for a "fancy and pretty" lottery number generator with theme switching.
+2.  **스타일 업데이트 (`style.css`):**
+    *   새로 추가된 다단계 폼, 입력 필드, 버튼에 대한 스타일을 적용합니다.
+    *   번호가 최종적으로 표시될 때 각 줄이 명확하게 구분되고 보기 좋도록 디자인합니다.
+
+3.  **로직 구현 (`main.js`):**
+    *   단계별 폼의 흐름을 제어하는 로직을 작성합니다.
+    *   사용자가 입력한 정보(생년월일, 좋아하는 숫자, 답변 텍스트)를 조합하여 시드(seed) 값을 만듭니다.
+    *   이 시드 값을 기반으로 하는 의사 난수 생성 알고리즘을 사용하여, 사용자에게 좀 더 의미 있는(것처럼 보이는) 번호 조합을 생성합니다.
+    *   총 5개의 중복되지 않는 로또 번호 조합(1-45 사이의 6개 숫자)을 생성합니다.
+    *   생성된 번호들을 애니메이션과 함께 화면에 표시하는 기능을 구현합니다.
+    *   "다시하기" 버튼을 누르면 첫 화면으로 돌아가도록 합니다.
+
+4.  **GitHub 배포:**
+    *   모든 변경 사항을 `git add .` 명령어로 스테이징합니다.
+    *   `git commit -m "feat: 맞춤 로또 번호 생성 기능 구현"` 메시지로 커밋합니다.
+    *   `git push origin main` 명령어로 GitHub 저장소에 최종 코드를 배포합니다.
