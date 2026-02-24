@@ -4,7 +4,8 @@
   # This is a one-time setup and will not apply to subsequent changes.
   # To re-evaluate this file, restart your workspace.
   packages = [
-    pkgs.git
+    pkgs.git,
+    pkgs.github-cli,
     pkgs.nodejs_20
   ];
 }
