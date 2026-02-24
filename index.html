@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="numbers-container">
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-            <div class="number-placeholder"></div>
-        </div>
-        <button id="generate-btn">Generate Numbers</button>
+        <header>
+            <h1>Lotto Number Generator</h1>
+            <div class="theme-switcher">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+        <main>
+            <div class="numbers-container">
+                <!-- Numbers will be generated here -->
+            </div>
+            <button id="generate-btn">Generate Numbers</button>
+        </main>
     </div>
     <script src="main.js"></script>
 </body>
