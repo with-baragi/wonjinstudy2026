@@ -33,8 +33,8 @@
 
             <!-- Step 2: Energy Level -->
             <div class="step" id="step-2">
-                <h2>현재 에너지 레벨은?</h2>
-                <p>0(완전 방전)에서 100(풀충전) 사이로 알려주세요.</p>
+                <h2>현재 기운이 얼마나 있나요?</h2>
+                <p>0(방전) ~ 100(풀충전) 사이로 선택해주세요.</p>
                 <div class="slider-container">
                     <input type="range" id="energy-level" class="range-slider" min="0" max="100" value="50">
                     <span id="energy-value">50</span>
@@ -52,18 +52,10 @@
                     <button class="btn-outline time-btn" data-time="night">🌙 밤</button>
                 </div>
                 <input type="hidden" id="time-of-day" value="">
-                <button class="btn-primary" id="next-btn-2">다음</button>
-            </div>
-
-            <!-- Step 4: Avoid Task -->
-            <div class="step" id="step-4">
-                <h2>가장 하기 싫은 일은 무엇인가요?</h2>
-                <p>솔직하게 적어주시면 더 좋은 추천이 나옵니다.</p>
-                <input type="text" id="avoid-task" class="input-field" placeholder="예: 운동, 공부, 집안일">
-                <button class="btn-primary" id="generate-btn">추천 결과 확인</button>
+                <button class="btn-primary" id="generate-btn">지금 바로 추천받기</button>
             </div>
             
-            <!-- Step 5: Results -->
+            <!-- Step 4: Results -->
             <div class="step" id="step-5">
                 <h2>오늘 당신의 미션!</h2>
                 <div id="results-container"></div>

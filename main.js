@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('.step');
     const startBtn = document.getElementById('start-btn');
     const nextBtn1 = document.getElementById('next-btn-1');
-    const nextBtn2 = document.getElementById('next-btn-2');
     const generateBtn = document.getElementById('generate-btn');
     const resetBtn = document.getElementById('reset-btn');
 
@@ -70,20 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
         showStep(3);
     });
 
-    nextBtn2.addEventListener('click', () => {
+    generateBtn.addEventListener('click', () => {
         if (timeOfInput.value) {
             userData.time = timeOfInput.value;
-            showStep(4);
+            generateAndShowResults();
+            showStep(5);
         } else {
             alert('시간대를 선택해주세요!');
         }
-    });
-
-    generateBtn.addEventListener('click', () => {
-        const avoidTask = document.getElementById('avoid-task').value;
-        userData.avoidTask = avoidTask;
-        generateAndShowResults();
-        showStep(5);
     });
 
     resetBtn.addEventListener('click', () => {
@@ -93,19 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
         energyValue.textContent = '50';
         timeBtns.forEach(b => b.classList.remove('selected'));
         timeOfInput.value = '';
-        document.getElementById('avoid-task').value = '';
         document.getElementById('results-container').innerHTML = '';
         showStep(1);
     });
 
     function generateAndShowResults() {
-        const { energy, time, avoidTask } = userData;
+        const { energy, time } = userData;
         
         // Filter tasks by energy level
         let availableTasks = tasks.filter(t => t.minEnergy <= energy);
         
-        // If energy is high, make sure to include some "avoidTask" if it matches
-        // Actually, let's just shuffle and pick 3
+        // Shuffle and pick 3
         let shuffled = availableTasks.sort(() => 0.5 - Math.random());
         let selectedTasks = shuffled.slice(0, 3);
 
