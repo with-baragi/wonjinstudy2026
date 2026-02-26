@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn1 = document.getElementById('next-btn-1');
     const generateBtn = document.getElementById('generate-btn');
     const resetBtn = document.getElementById('reset-btn');
+    const goResolutionBtn = document.getElementById('go-resolution-btn');
+    const backToResultsBtn = document.getElementById('back-to-results');
 
     // UI Elements
     const energySlider = document.getElementById('energy-level');
@@ -79,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    goResolutionBtn.addEventListener('click', () => showStep(6));
+    backToResultsBtn.addEventListener('click', () => showStep(5));
+
     resetBtn.addEventListener('click', () => {
         // Reset data and UI
         Object.keys(userData).forEach(key => delete userData[key]);
@@ -87,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeBtns.forEach(b => b.classList.remove('selected'));
         timeOfInput.value = '';
         document.getElementById('results-container').innerHTML = '';
+        document.getElementById('resolution-form').reset();
         showStep(1);
     });
 

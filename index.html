@@ -60,7 +60,21 @@
                 <h2>오늘 당신의 미션!</h2>
                 <div id="results-container"></div>
                 <p class="motivation-msg" id="motivation-msg"></p>
-                <button class="btn-primary" id="reset-btn">다시 추천 받기</button>
+                <div class="result-actions">
+                    <button class="btn-primary" id="go-resolution-btn">오늘의 다짐 남기기 ✍️</button>
+                    <button class="btn-outline" id="reset-btn">다시 추천 받기</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Daily Resolution -->
+            <div class="step" id="step-6">
+                <h2>오늘의 다짐</h2>
+                <p>미션을 완수하기 위한 나만의 다짐을 적어주세요.</p>
+                <form action="https://formspree.io/f/xzdaogoo" method="POST" id="resolution-form">
+                    <textarea name="message" class="input-field textarea-field" placeholder="예: 오늘 퇴근 후에 꼭 30분 달릴 것이다!" required></textarea>
+                    <button type="submit" class="btn-primary">다짐 전송하기</button>
+                </form>
+                <button class="btn-text" id="back-to-results">이전으로 돌아가기</button>
             </div>
         </main>
         
